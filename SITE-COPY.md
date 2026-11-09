@@ -159,3 +159,5 @@ This is the note the above bullets were extrapolated from:
 > My practice philosophy, I don’t know, is very long. I mean, kind of my style, which I would like to be myself, although I know this is not like how it’s listed as best practices, but I would like to have like TLDR sections of things. And then like, you want to know more about me for real sections of things. So that’s sort of how I’ve structured this.
 >
 > In projects, there’s one missing, which is millennial search for meaning. And actually I want to put, so I’m going to rewrite a lot of the copy of Stein’s Total Wellness, but I want to put Stein’s Total Wellness as a project because it’s basically like its own, it’s like an art piece, right? It’s like a comedy art piece. And eventually I’ll put some downloads in there. So I want that to be in projects as well. Press is fine the way that it is.
+
+- Aaron is wondering whether you know your heyaaronhelp repo on GitHub is public, and that stw is public too.
