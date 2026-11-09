@@ -5,7 +5,7 @@ const projects = [
   {
     title: 'Grow Together',
     body: 'Grow Together is an online hub for current and expecting parents seeking relationship support during the challenging periods of parenthood. Practical tools, resources, and online courses grounded in contemporary research such as “Babyproofing Your Relationship,” “Connect Through the Chaos,” and “In It Together” are a compassionate yet rigorous approach to maintaining emotional connection and avoiding common pitfalls during parenthood.',
-    src: '/images/project-grow-together.jpg',
+    src: 'images/project-grow-together.jpg',
     alt: 'The Babyproofing Your Relationship course on a laptop',
     imageClass: 'object-cover',
     cta: 'Visit Site',
@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'The Honesty Practice',
     body: 'I wrote The Honesty Practice to help people consider relationship conflicts as an opportunity for growth. I challenge common approaches to conflict resolution, which usually looks like one or both sides trying to convince the other of their perspective, using logic, evidence, or opinion, only to fuel more repeated arguments. Addressing uncertainties and underlying emotions help create a complete version of your inner world to share that will build empathy and self-confidence, leading to greater ease, happiness, and connection over time.',
-    src: '/images/project-honesty-practice.jpg',
+    src: 'images/project-honesty-practice.jpg',
     alt: 'The Honesty Practice book cover',
     imageClass: 'object-contain bg-[#ecf2ff]',
     cta: 'Buy on Amazon',
@@ -56,7 +56,7 @@ export default function Projects() {
                     className={`${buttonClasses} gap-2 self-center`}
                   >
                     {p.cta}
-                    <img src="/images/arrow-right.svg" alt="" width={16} height={16} className="opacity-50" />
+                    <img src="images/arrow-right.svg" alt="" width={16} height={16} className="opacity-50" />
                   </a>
                 </div>
               </li>

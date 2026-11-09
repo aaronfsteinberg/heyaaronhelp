@@ -122,7 +122,7 @@ export default function Contact() {
                   </select>
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute top-1/2 right-2 h-[60px] w-[42px] -translate-y-1/2 bg-ink-muted [mask:url(/images/chevron-down.svg)_center/100%_100%_no-repeat]"
+                    className="pointer-events-none absolute top-1/2 right-2 h-[60px] w-[42px] -translate-y-1/2 bg-ink-muted [mask:url(../images/chevron-down.svg)_center/100%_100%_no-repeat]"
                   />
                 </span>
               </Field>

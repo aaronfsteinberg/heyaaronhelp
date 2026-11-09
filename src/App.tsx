@@ -11,7 +11,7 @@ export default function App() {
   return (
     <Routes>
       <Route index element={<Home />} />
-      <Route path="coaching" element={<Coaching />} />
+      <Route path="services" element={<Coaching />} />
       <Route path="about" element={<About />} />
       <Route path="projects" element={<Projects />} />
       <Route path="press" element={<Press />} />

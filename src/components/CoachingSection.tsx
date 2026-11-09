@@ -28,7 +28,7 @@ export default function CoachingSection({ intro, cta }: CoachingSectionProps) {
                   key={item}
                   className="flex items-center gap-4 text-lg leading-[1.4] font-light text-ink tablet:text-xl desktop:text-2xl"
                 >
-                  <img src="/images/check.svg" alt="" width={24} height={25} className="flex-none" />
+                  <img src="images/check.svg" alt="" width={24} height={25} className="flex-none" />
                   <span>{item}</span>
                 </li>
               ))}

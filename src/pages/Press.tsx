@@ -13,7 +13,7 @@ const press: {
   {
     type: 'Article',
     title: '4 Fights Couples Always Have On Vacation (And How To Avoid Them)',
-    src: '/images/press-huffpost-vacation.jpg',
+    src: 'images/press-huffpost-vacation.jpg',
     href: 'https://www.huffpost.com/entry/couples-fighting-vacation-advice_l_668eb904e4b0922e34ab61b7',
     alt: 'HuffPost',
     crop: { w: 113.56, h: 100, x: -3.09, y: 0 },
@@ -21,7 +21,7 @@ const press: {
   {
     type: 'Spotify Podcast',
     title: 'Keeping intimacy alive after having a baby',
-    src: '/images/press-npr-intimacy.jpg',
+    src: 'images/press-npr-intimacy.jpg',
     href: 'https://open.spotify.com/episode/3fCdltitkle9sYO8gXWSOY',
     alt: 'NPR',
     crop: { w: 113.56, h: 100, x: -2.29, y: 0 },
@@ -29,7 +29,7 @@ const press: {
   {
     type: 'Article',
     title: '120 romantic love messages for the special woman in your life',
-    src: '/images/press-today-love-messages.jpg',
+    src: 'images/press-today-love-messages.jpg',
     href: 'https://www.today.com/life/relationships/love-messages-for-her-rcna65346',
     alt: 'TODAY',
     crop: { w: 100, h: 104.19, x: 0, y: -2.1 },
@@ -37,7 +37,7 @@ const press: {
   {
     type: 'Article',
     title: 'What Is a Toxic Relationship? Certified Mental-Health Expert Weighs In',
-    src: '/images/press-newsweek-toxic.jpg',
+    src: 'images/press-newsweek-toxic.jpg',
     href: 'https://www.newsweek.com/toxic-relationships-mental-health-expert-opinion-1913600',
     alt: 'Newsweek',
     crop: { w: 100, h: 104.27, x: 0, y: -2.14 },
@@ -45,7 +45,7 @@ const press: {
   {
     type: 'Spotify Podcast',
     title: 'Transforming Codependency/Anxious Attachment with Aaron Steinberg',
-    src: '/images/press-initiations-in-love.jpg',
+    src: 'images/press-initiations-in-love.jpg',
     href: 'https://open.spotify.com/episode/5YWmtcMovnqn71YPrPhVpQ',
     alt: 'Initiations in Love podcast',
     crop: { w: 100, h: 114.58, x: 0, y: -2.1 },
@@ -53,7 +53,7 @@ const press: {
   {
     type: 'Spotify Podcast',
     title: 'Navigating Relationships and Parenthood (‘The Story of a Brand’)',
-    src: '/images/press-story-of-a-brand.jpg',
+    src: 'images/press-story-of-a-brand.jpg',
     href: 'https://open.spotify.com/episode/6VJpDDd04IOCpCK7X3vtVw',
     alt: 'The Story of a Brand podcast',
     crop: { w: 100, h: 125.39, x: 0, y: -2.54 },
@@ -61,7 +61,7 @@ const press: {
   {
     type: 'Spotify Podcast',
     title: 'Embracing Nuances & Re-Examining Relationship Paradigms',
-    src: '/images/press-embracing-nuances.jpg',
+    src: 'images/press-embracing-nuances.jpg',
     href: 'https://open.spotify.com/episode/4cm1C81ujrXVWcC6wNTryN',
     alt: 'Another Way podcast',
     crop: { w: 106.67, h: 100, x: -3.33, y: 0 },
@@ -69,7 +69,7 @@ const press: {
   {
     type: 'Spotify Podcast',
     title: 'Nurturing Partner Relationships and Parenting with Aaron Steinberg',
-    src: '/images/press-joyful-courage.jpg',
+    src: 'images/press-joyful-courage.jpg',
     href: 'https://open.spotify.com/episode/6Jo8PvH0fAU9r2CWhHMLTi',
     alt: 'Joyful Courage podcast',
     crop: { w: 106.85, h: 100, x: -4.63, y: 0 },
@@ -77,7 +77,7 @@ const press: {
   {
     type: 'Article',
     title: 'Presenting: Perfect Responses for When Someone Asks Why You Don’t Want Kids',
-    src: '/images/press-cosmopolitan-kids.jpg',
+    src: 'images/press-cosmopolitan-kids.jpg',
     href: 'https://www.cosmopolitan.com/sex-love/a46131051/what-to-say-people-ask-why-you-don-t-want-kids/',
     alt: 'Cosmopolitan',
     crop: { w: 100, h: 104.22, x: 0, y: -2.11 },
@@ -85,7 +85,7 @@ const press: {
   {
     type: 'Article',
     title: 'These 3 Reasons Why Couples Argue Are the Basis of Every Fight in a Relationship',
-    src: '/images/press-wellgood-argue.jpg',
+    src: 'images/press-wellgood-argue.jpg',
     href: 'https://www.wellandgood.com/reasons-why-couples-argue/',
     alt: 'Well+Good',
     crop: { w: 103.93, h: 100, x: -1.96, y: 0 },
@@ -93,7 +93,7 @@ const press: {
   {
     type: 'Article',
     title: 'Relationship Coach Shares 3 Biggest Marriage Problems After Having A Baby',
-    src: '/images/press-huffpost-baby.jpg',
+    src: 'images/press-huffpost-baby.jpg',
     href: 'https://www.huffingtonpost.co.uk/entry/3-biggest-marriage-problems-after-having-a-baby_uk_65115ce8e4b060f32d3ac231',
     alt: 'HuffPost',
     crop: { w: 100, h: 111.11, x: 0, y: -5.56 },
@@ -101,7 +101,7 @@ const press: {
   {
     type: 'Spotify Podcast',
     title: 'How to Not Ruin Your Relationship After Kids with Aaron Steinberg',
-    src: '/images/press-big-time-adulting.jpg',
+    src: 'images/press-big-time-adulting.jpg',
     href: 'https://open.spotify.com/episode/1si38S24dITKh6qNJK559p',
     alt: 'Big Time Adulting podcast',
     crop: { w: 100, h: 104, x: 0, y: -2 },

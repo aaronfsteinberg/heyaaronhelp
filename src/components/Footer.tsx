@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/coaching', label: 'Coaching' },
+  { to: '/services', label: 'Services' },
   { to: '/about', label: 'About' },
   { to: '/press', label: 'Press' },
   { to: '/projects', label: 'Projects' },
@@ -13,21 +13,21 @@ const social = [
   {
     href: 'https://www.instagram.com/thegrowtogetherco/',
     label: 'Instagram',
-    src: '/images/icon-instagram.svg',
+    src: 'images/icon-instagram.svg',
     w: 45.5,
     h: 45.5,
   },
   {
     href: 'https://www.youtube.com/@thegrowtogetherco',
     label: 'YouTube',
-    src: '/images/icon-youtube.svg',
+    src: 'images/icon-youtube.svg',
     w: 49,
     h: 38.5,
   },
   {
     href: 'https://www.linkedin.com/in/aaronfseducation/',
     label: 'LinkedIn',
-    src: '/images/icon-linkedin.svg',
+    src: 'images/icon-linkedin.svg',
     w: 45.5,
     h: 45.5,
   },
@@ -38,7 +38,7 @@ export default function Footer() {
     <footer className="bg-navy pt-15 pb-[70px] tablet:pt-20 tablet:pb-25">
       <div className="site-container flex flex-col items-center">
         <Link to="/" aria-label="Home" className="mb-9">
-          <img src="/images/logo-footer.svg" alt="" width={64} height={64} className="size-16" />
+          <img src="images/logo-footer.svg" alt="" width={64} height={64} className="size-16" />
         </Link>
 
         <ul className="flex gap-7 tablet:gap-12">

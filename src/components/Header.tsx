@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 
 const links = [
-  { to: '/coaching', label: 'Coaching' },
+  { to: '/services', label: 'Services' },
   { to: '/about', label: 'About' },
   { to: '/projects', label: 'Projects' },
   { to: '/press', label: 'Press' },
@@ -10,7 +10,7 @@ const links = [
 
 const mobileLinks = [
   { to: '/', label: 'Home' },
-  { to: '/coaching', label: 'Coaching' },
+  { to: '/services', label: 'Services' },
   { to: '/about', label: 'About' },
   { to: '/projects', label: 'Projects' },
   { to: '/contact', label: 'Contact' },
@@ -121,7 +121,7 @@ export default function Header({ overlay = false }: HeaderProps) {
       <div className="site-container relative flex h-20 items-center justify-between max-tablet:w-[max(85%,100%-64px)] tablet:h-[104px] desktop:h-[120px]">
         <Link to="/" aria-label="Hey Aaron Help — home" onClick={() => setOpen(false)}>
           <img
-            src={shown ? '/images/logo-header-light.svg' : '/images/logo-header.svg'}
+            src={shown ? 'images/logo-header-light.svg' : 'images/logo-header.svg'}
             alt=""
             width={65}
             height={65}
@@ -138,7 +138,7 @@ export default function Header({ overlay = false }: HeaderProps) {
         >
           <span className="sr-only">{open ? 'Close menu' : 'Menu'}</span>
           {shown ? (
-            <img src="/images/icon-close.svg" alt="" width={32} height={32} />
+            <img src="images/icon-close.svg" alt="" width={32} height={32} />
           ) : (
             <span className="relative block size-8" aria-hidden="true">
               <span className={`${bar} top-[7px]`} />

@@ -1,80 +1,109 @@
-import ButtonLink from '../components/ButtonLink';
-import CoachingSection from '../components/CoachingSection';
+import ButtonLink, { buttonClasses } from '../components/ButtonLink';
 import Layout from '../components/Layout';
+import { asyncQuote, sessionsQuote, type Testimonial } from '../data/testimonials';
 
-// Copy from the current heyaaronhelp.com/coaching page.
-const methodology = [
+// Preview: Services page copy from the Site Copy doc.
+const body = 'flex flex-col gap-4 text-[17px] leading-[1.6] font-light text-ink tablet:gap-5 tablet:text-lg tablet:leading-[1.7] desktop:text-xl';
+const h2 = 'font-serif text-[22px] leading-[1.35] text-balance text-ink-dark tablet:text-2xl desktop:text-[26px]';
+
+const ways: { title: string; text: string; quote: Testimonial }[] = [
   {
-    heading: 'Why is it so hard to live up to our full potential?',
-    body: [
-      'As we approach middle age, we begin to imagine how the rest of our life could unfold. We fear that we may never become the person we want to be, have the relationship of our dreams, or accomplish what we aspire to. We grow increasingly frustrated with the cycles we’re stuck in and ask ourselves, “I’m smart and capable, so why can’t I figure this out?”',
-      'It’s easy to think that because we’re successful in business, art, athletics, parenting or other hobbies, we should be able to think, act, and feel the way we want. But for most of us, there’s a gap between who we are and who we want to be. We’re forced to admit there’s more to well-being and behavior than we understand.',
-    ],
+    title: 'Live sessions',
+    text: 'These are meetings that are more like what you’re used to, on my metaphorical Zoom couch for an hour. It’s a chance to have my attention in real time with whatever’s actually happening in the moment. But I promise that we can make them feel more fun and lighthearted than you’re used to, while also making sure that we take the serious stuff seriously.',
+    quote: sessionsQuote,
   },
   {
-    heading: '“You should talk to someone.”',
-    body: [
-      'If you’re brave or challenged enough to open up about your struggles, you’re often referred to coaching, therapy, workshops, or classes—different versions of “You should talk to someone.”',
-      'The first hurdle is understanding that needing support is normal. Transformation is complex and requires expert guidance. It doesn’t mean you’re broken; emotions, behavior, and connection are skills that can and need to be developed.',
-      'But once you accept the idea of getting help, the second hurdle is finding it. Quality support tends to be obscured by either “woo-woo” jargon or dense, academic theories. Simple, accessible tools and qualified practitioners are hard to come by.',
-    ],
+    title: 'Async voice and video',
+    text: 'My innovation is that I do asynchronous video and voice work. On your own schedule, you send me voice or video messages with your questions and whatever you’re thinking, feeling, or musing about. I send back every single thing that comes up for me when I hear it. I in no way think I’m God. We both throw spaghetti at the wall, back and forth, and it helps you refine your life.',
+    quote: asyncQuote,
   },
-  {
-    heading: 'You need a well-educated practitioner with diverse skills.',
-    body: [
-      'When people think of a life coach, negative stereotypes often come to mind. You might picture a person in flowy clothes burning sage and talking about chakra alignment or a former executive pushing you to “conquer your day,” dropping terms like “choice,” “self-responsibility,” and “accountability” with militant fervor.',
-      'In reality, coaching is a guided conversation that uses inquiry, feedback, education, and skill-building to help you achieve your goals faster than you would on your own.',
-      'Historically, therapy asks, “Where are you now, and how did you get here?” with a focus on diagnosing and treating psychiatric issues. Coaching asks, “Where are you now, and where do you want to go?” However, the lines between the two have blurred as therapy shifts away from a strictly medical model and coaches incorporate therapeutic education and techniques.',
-      'No matter what, good coaching focuses on a client’s goals. To get there, we explore and try new actions and provide education on best practices. But, we also recognize that it’s often impossible to break out of cycles without understanding how you’ve learned to think and act the way you do. We go back only to the extent that it serves your growth and freedom.',
-      'In coaching and therapy, it’s easy to feel like you’re just a nail because your practitioner only knows how to be a hammer. However, the best practitioners draw from a variety of models to meet the unique needs of each client, issue, and moment, while also matching your language and worldview.',
-    ],
-  },
-  {
-    heading: 'But even great practitioners aren’t enough.',
-    body: [
-      'Insights from sessions often fade. We may say, “It just feels good to talk about things I normally keep inside,” but that alone isn’t enough for lasting change.',
-    ],
-  },
-  {
-    heading: 'A clear model and practical tools between sessions.',
-    body: [
-      'Even when we find a practitioner we connect with, it’s often unclear how to make the most of the service or what to do between sessions to sustain progress. This leads to the feeling of two steps forward, two steps back.',
-      'This happens because most models of transformation address only parts of the puzzle. Few, if any, provide a comprehensive framework or teach clients how everything works together.',
-      'In working with me, you’ll get clear steps forward and both therapy and coaching best practices to support what you want.',
-    ],
-  },
+];
+
+const philosophy = [
+  'Although if you ask me, I’ll definitely give you my opinion and certainly the best practices, I really don’t like the orientation that a session has to be focused on a laundry list of things that are going wrong and the incessant problems we need to solve. When we do it this way, we tend to dread our sessions and not really want to keep going.',
+  'I like it better to think of sessions or asynchronous communication as an exploration. You don’t have to come in with a problem to fix or only do it when something’s going wrong. You can bring an intention, something you want to talk about, or something you want to change. But in my model, we’re going to see what happens as you turn toward yourself. That’s usually where the good stuff is.',
+  'A lot of my work is based in a psychodynamic philosophy (jargon, I know, sorry), which means that I believe that the necessary doorways emerge when you’re guided toward them and to make space for them, that our brains and consciousness are systems that actually know how to evolve instinctively.',
+  'This does not mean I’m one of those people that think you have all the answers that you need inside yourself. The whole point of hiring me is that I’ve spent a ton of time studying all this stuff and understanding how people grow and heal. But my knowledge and skills are best utilized when we can build off of what comes up for you naturally in the midst of this type of growth experience. And when we do it this way, it becomes really fascinating and enjoyable, as opposed to something to dread.',
+  'One of the most important things to me personally and as a practitioner is the attempt to face ourselves with humility and honesty, and the search for what’s most real within and outside. I think growth starts when we stop taking ourselves so seriously, and we can inhabit that magical place between defensiveness and self-deprecation.',
+  'In a certain way, I believe that working on yourself is the process of living more and more in reality. There’s so much that we don’t know about ourselves and don’t know about the world. And instead of living in that uncertainty, we overlay our experiences with so many assumptions about ourselves and others, filling in the blanks in really poorly organized, poorly constructed ways that then become “truth.” The process of growing and developing is in a certain way the process of questioning all of that, looking in the mirror at the ways we are living in a fantasy world of exaggerated and overgeneralized negativity and positivity that cause us to loop in the same habits and feel torn and lost in the same ways over and over again, and instead living more and more in reality, which I believe leads to much greater freedom and well-being, which is kind of the whole point.',
 ];
 
 export default function Coaching() {
   return (
-    <Layout title="Coaching — Hey Aaron Help">
+    <Layout title="Services — Hey Aaron Help">
       <article className="pt-10 pb-20 tablet:pt-16 tablet:pb-24 desktop:pt-24 desktop:pb-30">
-        <div className="site-container flex max-w-[700px] flex-col items-center gap-10 tablet:gap-12 desktop:gap-16">
-          <div className="flex flex-col gap-8 tablet:gap-10 desktop:gap-12">
+        <div className="site-container flex max-w-[860px] flex-col items-center gap-10 tablet:gap-12 desktop:gap-16">
+          <div className="flex w-full flex-col gap-8 tablet:gap-10 desktop:gap-12">
             <h1 className="text-center font-serif text-[32px] leading-[1.2] text-ink tablet:text-[40px] desktop:text-5xl">
-              My Methodology
+              Services
             </h1>
-            {methodology.map((s) => (
-              <section key={s.heading} className="flex flex-col gap-3 tablet:gap-4">
-                <h2 className="font-serif text-[22px] leading-[1.35] text-balance text-ink-dark tablet:text-2xl desktop:text-[26px]">
-                  {s.heading}
-                </h2>
-                <div className="flex flex-col gap-4 text-[17px] leading-[1.6] font-light text-ink tablet:gap-5 tablet:text-lg tablet:leading-[1.7] desktop:text-xl">
-                  {s.body.map((p) => (
-                    <p key={p.slice(0, 24)}>{p}</p>
-                  ))}
-                </div>
-              </section>
-            ))}
+
+            <section className="mx-auto flex max-w-[700px] flex-col gap-3 tablet:gap-4">
+              <h2 className={h2}>What coaching is</h2>
+              <div className={body}>
+                <p>
+                  Historically, coaching asks, “Where are you now, and where do you want to go?” Whereas therapy asks,
+                  “Where are you now, and how did you get here?” I’m trained in both, but do not practice as a licensed
+                  therapist. And anyway, these days, the lines between coaching and therapy have blurred as therapy moves
+                  away from the strictly medical model and coaches bring in therapeutic education and techniques.
+                </p>
+                <p>
+                  One way to think about coaching is it’s a place to help you figure out what you want and get you closer
+                  to it than you get on your own. In practice, it’s a guided conversation that uses inquiry, feedback,
+                  education, and skill-building to help you get to know yourself better, learn better emotional
+                  regulation skills, and feel more agency in your life to close the gap between how you want to think,
+                  feel, and act, and what you end up doing in the heat of the moment. You’ll also learn the best
+                  practices and understandings from all the fields I’ve studied, and the tools I’ve developed along the
+                  way. I use a model that I’ve created and refined over the 16 years that I’ve been in this field.
+                </p>
+              </div>
+              {/* Preview: placeholder until the framework handout exists. */}
+              <div className="mt-4 flex justify-center tablet:mt-6">
+                <span className={buttonClasses}>Learn My Framework</span>
+              </div>
+            </section>
+
+            <section className="flex flex-col gap-3 tablet:gap-4">
+              <h2 className={`${h2} mx-auto w-full max-w-[700px]`}>How I do it</h2>
+              <div className={`${body} mx-auto w-full max-w-[700px]`}>
+                <p>
+                  This type of work is often done in the repeating session model. But there’s no real reason that this is
+                  the way it has to be, other than the fact that this is the way it’s always been. However, I haven’t
+                  entirely innovated away from this yet. So I work with couples and individuals in two different ways.
+                </p>
+              </div>
+              <div className="mt-2 grid gap-5 tablet:grid-cols-2 tablet:gap-6">
+                {ways.map((w) => (
+                  <div key={w.title} className="flex flex-col gap-5 rounded-2xl bg-ice-100 p-6 tablet:p-8">
+                    <h3 className="font-serif text-[22px] leading-[1.3] text-ink-dark tablet:text-2xl">{w.title}</h3>
+                    <p className="text-[17px] leading-[1.6] font-light text-ink">{w.text}</p>
+                    <figure className="m-0 mt-auto border-t border-ink/15 pt-5">
+                      <blockquote className="m-0 text-[15px] leading-relaxed font-light text-ink italic">
+                        “{w.quote.quote}”
+                      </blockquote>
+                      <figcaption className="mt-3 text-sm leading-[1.4] text-ink">
+                        — {w.quote.name}, {w.quote.role}
+                      </figcaption>
+                    </figure>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 flex justify-center tablet:mt-6">
+                <ButtonLink to="/contact">Get Started</ButtonLink>
+              </div>
+            </section>
+
+            <section className="mx-auto flex max-w-[700px] flex-col gap-3 tablet:gap-4">
+              <h2 className={h2}>My Practice Philosophy</h2>
+              <div className={body}>
+                {philosophy.map((p) => (
+                  <p key={p.slice(0, 24)}>{p}</p>
+                ))}
+              </div>
+            </section>
           </div>
-          <ButtonLink to="/contact">Get Started</ButtonLink>
         </div>
       </article>
-
-      <CoachingSection
-        intro="I offer private sessions, classes, and practice groups, specializing in:"
-        cta="Work With Me"
-      />
     </Layout>
   );
 }
