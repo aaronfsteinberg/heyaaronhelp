@@ -12,7 +12,7 @@ Here’s what people ask me: “Hey, Aaron...”
 
 “...what do you make of this?”
 
-“...why do I keep doing the same s#!t?”
+“...how do I get out of this loop I’m stuck in?”
 
 “...how do we have an actually good relationship?”
 
@@ -161,3 +161,9 @@ This is the note the above bullets were extrapolated from:
 > In projects, there’s one missing, which is millennial search for meaning. And actually I want to put, so I’m going to rewrite a lot of the copy of Stein’s Total Wellness, but I want to put Stein’s Total Wellness as a project because it’s basically like its own, it’s like an art piece, right? It’s like a comedy art piece. And eventually I’ll put some downloads in there. So I want that to be in projects as well. Press is fine the way that it is.
 
 - Aaron is wondering whether you know your heyaaronhelp repo on GitHub is public, and that stw is public too.
+
+## Ideas to work in
+
+* Being asked “how does that feel?” over and over again. People are super lost and need help, but the idea of being asked “how does that feel” over and over, or sitting in a session, just feels unappealing.
+* “What if it worked?” (from Sally). A big problem is that people experience a lot of therapy and coaching and don’t really feel like actual changes are happening. Aaron is wary of this one because it feels cliché, but it can be dripped in.
+* Aaron is wary of “What if it worked?”, but it is true that he’s obsessed with trying to figure out what actually creates change: the practices and ways of thinking about things that actually move the needle, as opposed to the ones that just keep you repeating the same habits and patterns.

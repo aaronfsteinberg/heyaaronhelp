@@ -63,7 +63,7 @@ const testimonials = [
 
 const questions = [
   '“...what do you make of this?”',
-  '“...why do I keep doing the same s#!t?”',
+  '“...how do I get out of this loop I’m stuck in?”',
   '“...how do we have an actually good relationship?”',
   '“...how do I get my f*&#ing life to work better?”',
   '“...who am I, really?”',
