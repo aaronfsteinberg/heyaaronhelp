@@ -1,9 +1,10 @@
 import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { Link } from 'react-router';
-import ButtonLink from '../components/ButtonLink';
+import ButtonLink, { lightButtonClasses } from '../components/ButtonLink';
 import Layout from '../components/Layout';
-import TestimonialCarousel from '../components/TestimonialCarousel';
-import { carousel } from '../data/testimonials';
+import TestimonialBanner from '../components/TestimonialBanner';
+import TestimonialRotator from '../components/TestimonialRotator';
+import { featured, rotation } from '../data/testimonials';
 import { display, lede } from '../styles';
 
 // Desktop logo sizes keep each artwork's proportions within the Figma row's
@@ -32,35 +33,6 @@ const press = [
   },
 ];
 
-// `crop` reproduces each photo's placement inside its circular frame in Figma
-// (percentages of the frame: width, height, left, top).
-const testimonials = [
-  {
-    quote:
-      'Aaron’s ability to get to the core of an issue made our work together incredibly valuable and transformative. I highly recommend him to other executives, or really anyone seeking impactful guidance.',
-    name: 'Michael Garrett',
-    role: 'Founder & CEO, Plunge',
-    src: '/images/testimonial-michael.jpg',
-    crop: { w: 272.16, h: 111.59, x: 4.73, y: -5.96 },
-  },
-  {
-    quote:
-      'Aaron’s ability to convey complex concepts in a lighthearted and accessible way—while still being sincere—is incredibly useful. He is terrific at what he does and his work has helped me tremendously. I highly recommend his services.',
-    name: 'Lane 8',
-    role: 'Musician & Producer',
-    src: '/images/testimonial-lane8.jpg',
-    crop: { w: 317.79, h: 130.29, x: -209.12, y: 0 },
-  },
-  {
-    quote:
-      'Aaron helped me understand myself and how to communicate effectively. He’s helped me progress and grow as a person, and I love soaking up all the good things he has to offer.',
-    name: 'Erika Shelton',
-    role: 'Yoga Teacher and Entrepreneur',
-    src: '/images/testimonial-erika.jpg',
-    crop: { w: 238.88, h: 134.4, x: -0.04, y: 0.02 },
-  },
-];
-
 const questions = [
   '“...what do you make of this?”',
   '“...how do I get out of this loop I’m stuck in?”',
@@ -73,6 +45,12 @@ const topics = [
   ['General Well-Being', 'Performance'],
   ['Leadership & Communication', 'Relationships'],
 ];
+
+// The questions read as incoming messages: white bubbles with the tail bottom-left,
+// stepped across the column so they don't sit in a flat stack.
+const bubble =
+  'w-fit max-w-[92%] rounded-[24px] rounded-bl-md bg-white px-5 py-3 font-serif text-[19px] leading-[1.3] text-ink-dark shadow-[0_12px_28px_-16px_rgba(18,60,88,0.45)] tablet:max-w-[86%] tablet:rounded-[30px] tablet:rounded-bl-lg tablet:px-7 tablet:py-4 tablet:text-2xl desktop:text-[28px]';
+const bubbleOffsets = ['', 'ml-[7%] tablet:ml-[9%]', 'ml-[2%] tablet:ml-[3%]', 'ml-[8%] tablet:ml-[13%]', 'ml-[4%] tablet:ml-[6%]'];
 
 export default function Home() {
   // The press logos spread edge to edge; when the last one wraps onto a row of
@@ -166,23 +144,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hey, Aaron... */}
-      <section className="bg-ice-200 pt-15 pb-20 tablet:py-24 desktop:py-30">
-        <div className="site-container flex flex-col items-center gap-8 text-center tablet:gap-10 desktop:gap-12">
-          <div className="flex max-w-[900px] flex-col gap-3">
-            <h2 className={display()}>Here’s what people ask me: “Hey, Aaron...”</h2>
-            <ul className="my-4 flex flex-col gap-2 font-serif text-[22px] leading-[1.35] text-ink-dark tablet:my-6 tablet:text-[26px] desktop:text-[30px]">
-              {questions.map((q) => (
-                <li key={q}>{q}</li>
+      {/* Hey, Aaron... — the questions arrive as messages and the offer is Aaron's reply */}
+      <section className="overflow-hidden bg-ice-200 pt-15 pb-20 tablet:py-24 desktop:py-30">
+        <div className="site-container flex flex-col items-center">
+          <h2 className="text-center text-ink">
+            <span className={`block ${lede}`}>Here’s what people ask me:</span>
+            <span className="mt-1 block font-serif text-[40px] leading-[1.1] tablet:mt-2 tablet:text-[52px] desktop:text-[64px]">
+              “Hey, Aaron...”
+            </span>
+          </h2>
+
+          <div className="mt-8 flex w-full max-w-[900px] flex-col tablet:mt-12">
+            <ul className="flex flex-col gap-3 tablet:gap-4">
+              {questions.map((q, i) => (
+                <li key={q} className={`${bubble} ${bubbleOffsets[i % bubbleOffsets.length]}`}>
+                  {q}
+                </li>
               ))}
             </ul>
-            <p className={lede}>
-              I offer live sessions and asynchronous video and voice support to help individuals and couples explore
-              these questions, and all the other important ones. It’s sort of like therapy, but you actually look
-              forward to it.
-            </p>
+            <div className="mt-6 flex items-end justify-end gap-3 tablet:mt-8 tablet:gap-4">
+              <p className="max-w-[560px] rounded-[24px] rounded-br-md bg-navy px-5 py-4 text-[17px] leading-normal font-light text-white tablet:rounded-[30px] tablet:rounded-br-lg tablet:px-7 tablet:py-5 tablet:text-xl tablet:leading-[1.45]">
+                I offer live sessions and asynchronous video and voice support to help individuals and couples explore
+                these questions, and all the other important ones. It’s sort of like therapy, but you actually look
+                forward to it.
+              </p>
+              <img src="/images/logo-header.svg" alt="" width={56} height={56} className="size-10 flex-none tablet:size-14" />
+            </div>
           </div>
-          <div className="flex flex-col items-center gap-3">
+
+          <div className="mt-10 flex flex-col items-center gap-3 tablet:mt-14">
             <ButtonLink to="/contact">Book a Call</ButtonLink>
             <p className="text-[15px] leading-[1.4] font-light text-ink tablet:text-base">
               Worst case, you had a nice conversation.
@@ -193,114 +183,128 @@ export default function Home() {
 
       {/* Practitioner overview */}
       <section className="bg-paper pt-15 pb-20 tablet:py-24 desktop:py-30">
-        <div className="site-container flex max-w-[760px] flex-col gap-5 text-[17px] leading-[1.6] font-light text-ink tablet:gap-6 tablet:text-xl tablet:leading-[1.6] desktop:text-[22px]">
-          <p>
-            Technically, I’m a{' '}
-            <Link to="/services" className="underline decoration-1 underline-offset-4 hover:text-navy">
-              life coach
-            </Link>
-            . It also pains me to call myself a coach, yet I also refuse to tell you I’m a “self-awareness and freedom
-            specialist” or some nonsense like that. I’m kind of just a guy.
-          </p>
-          <p>
-            But I’ve also been meditating since I was five, and I’ve studied as much psychology, spirituality,
-            personal growth, healing, transformation — whatever we want to call it — and neuroscience as I possibly
-            can. I’m obsessed with giving people a safe place (painfully co-opted word, but I mean it sincerely) to be
-            and become all of who they are.
-          </p>
-          <p>
-            I’m trying to engage deeply and honestly with what we’re doing here and how to make the most out of life.
-            So, hey. If you want a partner who’s done this a lot to help figure out your version, that’s what I’m here
-            for.
-          </p>
-          <div className="mt-4 flex justify-center tablet:mt-6">
-            <ButtonLink to="/about">About Me</ButtonLink>
+        <div className="site-container grid max-w-[1060px] items-center gap-9 tablet:grid-cols-[240px_minmax(0,1fr)] tablet:gap-12 desktop:grid-cols-[340px_minmax(0,1fr)] desktop:gap-20">
+          <div className="relative mx-auto size-[180px] tablet:size-[240px] desktop:size-[340px]">
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 translate-x-2.5 translate-y-2.5 rounded-full bg-ice-300 tablet:translate-x-4 tablet:translate-y-4 desktop:translate-x-5 desktop:translate-y-5"
+            />
+            <img
+              src="/images/about-aaron.png"
+              alt="Aaron Steinberg"
+              width={340}
+              height={340}
+              loading="lazy"
+              className="relative size-full rounded-full object-cover"
+            />
+          </div>
+          <div className="flex flex-col gap-5 text-[17px] leading-[1.6] font-light text-ink tablet:text-lg desktop:gap-6 desktop:text-xl">
+            <p className="font-serif text-[30px] leading-[1.2] font-normal text-ink-dark tablet:text-[38px] desktop:text-5xl">
+              Technically, I’m a{' '}
+              <Link to="/services" className="underline decoration-1 underline-offset-[6px] hover:text-navy">
+                life coach
+              </Link>
+              .
+            </p>
+            <p>
+              It also pains me to call myself a coach, yet I also refuse to tell you I’m a “self-awareness and freedom
+              specialist” or some nonsense like that. I’m kind of just a guy.
+            </p>
+            <p>
+              But I’ve also been meditating since I was five, and I’ve studied as much psychology, spirituality,
+              personal growth, healing, transformation — whatever we want to call it — and neuroscience as I possibly
+              can. I’m obsessed with giving people a safe place (painfully co-opted word, but I mean it sincerely) to be
+              and become all of who they are.
+            </p>
+            <p>
+              I’m trying to engage deeply and honestly with what we’re doing here and how to make the most out of life.
+              So, hey. If you want a partner who’s done this a lot to help figure out your version, that’s what I’m here
+              for.
+            </p>
+            <div className="mt-2 flex justify-center tablet:justify-start">
+              <ButtonLink to="/about">About Me</ButtonLink>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What we can work on */}
-      <section className="bg-ice-100 pt-15 pb-20 tablet:py-24 desktop:py-30">
-        <div className="site-container flex flex-col items-center gap-8 text-center tablet:gap-10">
-          <h2 className={display()}>What we can work on</h2>
-          <div className="flex flex-col gap-2 text-left tablet:flex-row tablet:justify-center tablet:gap-12 desktop:gap-16">
-            {topics.map((col) => (
-              <ul key={col[0]} className="flex flex-col gap-2">
-                {col.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-4 text-lg leading-[1.4] font-light text-ink tablet:text-xl desktop:text-2xl"
-                  >
-                    <img src="/images/check.svg" alt="" width={24} height={25} className="flex-none" />
-                    <span>{item}</span>
-                  </li>
+      {/* What we can work on — the official list is a card lying on top of the big stuff underneath */}
+      <section className="bg-ice-100 pt-15 pb-10 tablet:pt-24 tablet:pb-12 desktop:pt-30 desktop:pb-14">
+        <div className="site-container flex flex-col items-center">
+          <h2 className={`${display()} text-center`}>What we can work on</h2>
+          <div className="mt-9 w-full max-w-[940px] tablet:mt-14">
+            <div className="relative z-10 mx-auto w-[calc(100%-28px)] max-w-[760px]">
+              <span aria-hidden="true" className="absolute inset-0 rotate-2 rounded-2xl bg-ice-400" />
+              <div className="relative flex -rotate-1 flex-col gap-2 rounded-2xl bg-white px-6 py-6 shadow-[0_18px_40px_-18px_rgba(13,45,67,0.55)] tablet:flex-row tablet:justify-center tablet:gap-10 tablet:px-10 tablet:py-8 desktop:gap-12">
+                {topics.map((col) => (
+                  <ul key={col[0]} className="flex flex-col gap-2">
+                    {col.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-center gap-4 text-lg leading-[1.4] font-light text-ink tablet:text-xl tablet:whitespace-nowrap desktop:text-[22px]"
+                      >
+                        <img src="/images/check.svg" alt="" width={24} height={25} className="flex-none" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 ))}
-              </ul>
-            ))}
+              </div>
+            </div>
+            <div className="-mt-12 rounded-3xl bg-navy px-6 pt-[84px] pb-10 text-center text-white tablet:-mt-14 tablet:rounded-[32px] tablet:px-14 tablet:pt-[104px] tablet:pb-14 desktop:px-20 desktop:pb-16">
+              <p className="text-[17px] leading-normal font-light text-ice-300 tablet:text-xl">
+                That’s the official list. But honestly, what I really love is the big stuff:
+              </p>
+              <p className="mt-3 font-serif text-[26px] leading-[1.25] text-balance tablet:mt-4 tablet:text-4xl desktop:text-[44px] desktop:leading-[1.2]">
+                who you are, identity crises, what the hell we’re doing here, and what makes a relationship actually
+                work.
+              </p>
+              <div className="mt-8 tablet:mt-10">
+                <ButtonLink to="/services" className={lightButtonClasses}>
+                  Services
+                </ButtonLink>
+              </div>
+            </div>
           </div>
-          <p className={`${lede} max-w-[760px]`}>
-            That’s the official list. But honestly, what I really love is the big stuff: who you are, identity crises,
-            what the hell we’re doing here, and what makes a relationship actually work.
-          </p>
-          <ButtonLink to="/services">Services</ButtonLink>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section
-        aria-labelledby="testimonials-title"
-        className="bg-ice-100 pt-15 pb-20 text-center tablet:pt-14 tablet:pb-24 desktop:py-24"
-      >
-        <h2 id="testimonials-title" className={display()}>
+      <section aria-labelledby="testimonials-title" className="bg-ice-100 pt-15 pb-20 tablet:pt-14 tablet:pb-24 desktop:py-24">
+        <h2 id="testimonials-title" className={`${display()} text-center`}>
           Testimonials
         </h2>
-        <div className="site-container mt-8 flex flex-col gap-20 tablet:mt-10 tablet:gap-18 desktop:mt-6 desktop:gap-[63px] desktop:px-6">
-          {testimonials.map((t) => (
-            <figure
-              key={t.name}
-              className="m-0 flex flex-col items-center gap-6 text-center tablet:gap-8 desktop:min-h-[340px] desktop:flex-row desktop:gap-16 desktop:pr-[168px] desktop:pl-6 desktop:text-left desktop:even:flex-row-reverse desktop:even:pr-6 desktop:even:pl-[168px]"
-            >
-              <div className="relative size-[200px] flex-none overflow-hidden rounded-full tablet:size-[220px] desktop:size-[300px]">
-                <img
-                  src={t.src}
-                  alt={t.name}
-                  loading="lazy"
-                  className="absolute max-w-none"
-                  style={{
-                    width: `${t.crop.w}%`,
-                    height: `${t.crop.h}%`,
-                    left: `${t.crop.x}%`,
-                    top: `${t.crop.y}%`,
-                  }}
-                />
-              </div>
-              <div className="flex flex-col gap-4 max-w-[480px] tablet:max-w-[540px] desktop:max-w-none desktop:flex-1">
-                <blockquote className="m-0 font-fraunces text-xl leading-[1.4] font-light text-ink tablet:text-[22px] desktop:-indent-[0.45em] desktop:text-2xl">
-                  “{t.quote}”
-                </blockquote>
-                <figcaption className="flex flex-col text-ink">
-                  <span className="text-base leading-[1.4] tablet:text-[17px] desktop:text-lg desktop:leading-[1.4]">
-                    {t.name}
-                  </span>
-                  <span className="text-sm leading-[1.4] font-light tablet:text-[15px] desktop:text-base desktop:leading-[1.4]">
-                    {t.role}
-                  </span>
-                </figcaption>
-              </div>
-            </figure>
+        <div className="site-container mt-8 flex flex-col gap-6 tablet:mt-10 tablet:gap-8 desktop:gap-10">
+          {featured.map((t) => (
+            <TestimonialBanner key={t.name} t={t} />
           ))}
+          <TestimonialRotator items={rotation} />
         </div>
-        <TestimonialCarousel items={carousel} />
       </section>
 
-      {/* Start */}
-      <section className="bg-ice-300 pt-[70px] pb-20 tablet:py-28 desktop:pt-[139px] desktop:pb-[140px]">
-        <div className="site-container flex flex-col items-center gap-6 text-center tablet:gap-8 desktop:gap-10">
-          <div className="flex flex-col gap-1.5 tablet:gap-2">
-            <h2 className={display()}>Schedule time to get to know me.</h2>
-            <p className={lede}>Let’s see if this is your thing.</p>
+      {/* Start — Aaron's own message, with the logo as his avatar */}
+      <section className="bg-ice-300 pt-[70px] pb-24 tablet:py-28 desktop:py-[130px]">
+        <div className="site-container flex justify-center">
+          <div className="relative w-full max-w-[880px] rounded-[32px] rounded-br-lg bg-navy px-6 py-12 text-center text-white tablet:rounded-[48px] tablet:rounded-br-xl tablet:px-16 tablet:py-16 desktop:py-20">
+            <h2 className="font-serif text-[30px] leading-[1.2] text-balance tablet:text-[44px] desktop:text-[56px] desktop:leading-[1.15]">
+              Schedule time to get to know me.
+            </h2>
+            <p className="mt-2 text-[17px] leading-normal font-light text-ice-300 tablet:mt-3 tablet:text-xl">
+              Let’s see if this is your thing.
+            </p>
+            <div className="mt-7 tablet:mt-9">
+              <ButtonLink to="/contact" className={lightButtonClasses}>
+                Book a Call
+              </ButtonLink>
+            </div>
+            <img
+              src="/images/logo-header.svg"
+              alt=""
+              width={80}
+              height={80}
+              className="absolute -right-2 -bottom-6 size-14 rounded-full bg-ice-300 ring-4 ring-ice-300 tablet:-right-6 tablet:-bottom-8 tablet:size-20"
+            />
           </div>
-          <ButtonLink to="/contact">Book a Call</ButtonLink>
         </div>
       </section>
     </Layout>

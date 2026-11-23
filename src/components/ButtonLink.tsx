@@ -13,6 +13,9 @@ const buttonBase =
 /** Primary navy pill CTA styles, shared with form submit buttons. */
 export const buttonClasses = `${buttonBase} h-12 px-7 bg-navy text-white hover:bg-navy-dark`;
 
+/** White pill for use on navy panels. */
+export const lightButtonClasses = `${buttonBase} h-12 px-7 bg-white text-navy hover:bg-ice-100`;
+
 /** White pill on mobile (for use over photos), the navy CTA from tablet up. */
 export const heroButtonClasses = `${buttonBase} h-14 px-10 bg-white text-navy hover:bg-ice-100 tablet:bg-navy tablet:text-white tablet:hover:bg-navy-dark`;
 
