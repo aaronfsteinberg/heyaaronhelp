@@ -58,8 +58,9 @@ export const featured: BannerTestimonial[] = [
 
 /**
  * The fourth banner on Home cycles through these. Each banner image is the person's
- * headshot placed on the right and extended to the left with a soft wash of its own
- * colours. Quotes are trimmed from the full versions in the testimonials doc.
+ * whole headshot on the right, with its background continued to the left and blurred
+ * more the further it gets from them. Quotes are trimmed from the full versions in
+ * the testimonials doc.
  */
 export const rotation: BannerTestimonial[] = [
   {
@@ -70,7 +71,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/kristy-arnett.jpg',
     photo: 'right',
     tone: 'dark',
-    tint: ['#24183b', '#231737'],
+    tint: ['#24183a', '#241933'],
+    position: 'center 20%',
   },
   {
     name: "Jenna & Hagan",
@@ -79,7 +81,7 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/jenna-hagan.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#f4efe7', '#f4efe7'],
+    tint: ['#e1dcd3', '#dcd3ca'],
   },
   {
     name: "Paul & Angie",
@@ -88,7 +90,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/paul-angie.jpg',
     photo: 'right',
     tone: 'dark',
-    tint: ['#13241a', '#13241a'],
+    tint: ['#132417', '#19271e'],
+    position: 'center 30%',
   },
   {
     name: "Emily Long",
@@ -98,7 +101,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/emily-long.jpg',
     photo: 'right',
     tone: 'dark',
-    tint: ['#2b2a26', '#2b2a25'],
+    tint: ['#2f2e29', '#2d2c27'],
+    position: 'center 5%',
   },
   {
     name: "Zach Silverman",
@@ -108,7 +112,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/zach-silverman.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#dfe5dc', '#dee3db'],
+    tint: ['#d4dbd0', '#d0d8cc'],
+    position: 'center 5%',
   },
   {
     name: "Jack Parmer",
@@ -118,7 +123,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/jack-parmer.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#e6e1e0', '#e9e6e4'],
+    tint: ['#ddd8d4', '#e7e3e0'],
+    position: 'center 20%',
   },
   {
     name: "Courtney Joyce",
@@ -128,7 +134,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/courtney-joyce.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#e8ebe5', '#ecece8'],
+    tint: ['#e3e9e1', '#e5e7df'],
+    position: 'center 25%',
   },
   {
     name: "Andrew Moreno",
@@ -138,7 +145,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/andrew-moreno.jpg',
     photo: 'right',
     tone: 'dark',
-    tint: ['#1b1f2f', '#181e33'],
+    tint: ['#262832', '#1e253a'],
+    position: 'center top',
   },
   {
     name: "Ben Tollerene",
@@ -148,7 +156,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/ben-tollerene.jpg',
     photo: 'right',
     tone: 'dark',
-    tint: ['#080a41', '#080d46'],
+    tint: ['#090a3d', '#071146'],
+    position: 'center 12%',
   },
   {
     name: "Iris McAlpin",
@@ -158,7 +167,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/iris-mcalpin.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#f8f5db', '#f8f5d9'],
+    tint: ['#f9f5d2', '#f9f4cf'],
+    position: 'center 10%',
   },
   {
     name: "Monica Sanny",
@@ -168,7 +178,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/monica-sanny.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#dedee2', '#dbdce6'],
+    tint: ['#cfd2d3', '#ccccdc'],
+    position: 'center 15%',
   },
   {
     name: "NoAmy Wolves",
@@ -178,7 +189,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/noamy-wolves.jpg',
     photo: 'right',
     tone: 'dark',
-    tint: ['#30151b', '#38181e'],
+    tint: ['#30181e', '#441e25'],
+    position: 'center 5%',
   },
   {
     name: "Dr. Sara Estrin",
@@ -188,7 +200,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/sara-estrin.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#e2e2e2', '#e4e4e4'],
+    tint: ['#d7d7d7', '#dbdbdb'],
+    position: 'center 35%',
   },
   {
     name: "Jeanette Brousseau",
@@ -198,7 +211,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/jeanette-brousseau.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#f0f1f0', '#e4e4e5'],
+    tint: ['#f3f3f3', '#e0dfe0'],
+    position: 'center 5%',
   },
   {
     name: "Juan-Carlos Faust",
@@ -208,7 +222,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/juan-carlos-faust.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#f0eeee', '#ebe7e6'],
+    tint: ['#f2f0f0', '#e8e2e1'],
+    position: 'center 5%',
   },
 ];
 
