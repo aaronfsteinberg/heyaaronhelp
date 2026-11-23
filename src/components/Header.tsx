@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 
 const links = [
-  { to: '/coaching', label: 'Coaching' },
+  { to: '/services', label: 'Services' },
   { to: '/about', label: 'About' },
   { to: '/projects', label: 'Projects' },
   { to: '/press', label: 'Press' },
@@ -10,7 +10,7 @@ const links = [
 
 const mobileLinks = [
   { to: '/', label: 'Home' },
-  { to: '/coaching', label: 'Coaching' },
+  { to: '/services', label: 'Services' },
   { to: '/about', label: 'About' },
   { to: '/projects', label: 'Projects' },
   { to: '/contact', label: 'Contact' },

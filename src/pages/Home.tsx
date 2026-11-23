@@ -1,7 +1,9 @@
 import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
-import ButtonLink, { heroButtonClasses } from '../components/ButtonLink';
-import CoachingSection from '../components/CoachingSection';
+import { Link } from 'react-router';
+import ButtonLink from '../components/ButtonLink';
 import Layout from '../components/Layout';
+import TestimonialCarousel from '../components/TestimonialCarousel';
+import { carousel } from '../data/testimonials';
 import { display, lede } from '../styles';
 
 // Desktop logo sizes keep each artwork's proportions within the Figma row's
@@ -59,6 +61,19 @@ const testimonials = [
   },
 ];
 
+const questions = [
+  '“...what do you make of this?”',
+  '“...how do I get out of this loop I’m stuck in?”',
+  '“...how do we have an actually good relationship?”',
+  '“...how do I get my f*&#ing life to work better?”',
+  '“...who am I, really?”',
+];
+
+const topics = [
+  ['General Well-Being', 'Performance'],
+  ['Leadership & Communication', 'Relationships'],
+];
+
 export default function Home() {
   // The press logos spread edge to edge; when the last one wraps onto a row of
   // its own, centre it instead of leaving it at the left.
@@ -98,12 +113,9 @@ export default function Home() {
         />
         <div className="relative flex flex-1 flex-col items-center justify-end gap-8 px-8 pb-16 text-center tablet:site-container tablet:block tablet:flex-none tablet:px-0 tablet:pt-[142px] tablet:pb-0 tablet:pl-12 tablet:text-left desktop:pt-[190px]">
           <h1 className="max-w-[539px] font-serif text-5xl leading-none text-balance text-white tablet:mb-8 tablet:max-w-none tablet:leading-[1.1] tablet:whitespace-nowrap tablet:text-ink desktop:mb-10 desktop:text-7xl">
-            Be the person you’ve <br className="hidden tablet:inline" />
-            always wanted to be.
+            Working on yourself <br className="hidden tablet:inline" />
+            doesn’t have to suck.
           </h1>
-          <ButtonLink to="/coaching" className={heroButtonClasses}>
-            Learn More
-          </ButtonLink>
         </div>
       </section>
 
@@ -154,21 +166,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mission */}
+      {/* Hey, Aaron... */}
       <section className="bg-ice-200 pt-15 pb-20 tablet:py-24 desktop:py-30">
         <div className="site-container flex flex-col items-center gap-8 text-center tablet:gap-10 desktop:gap-12">
           <div className="flex max-w-[900px] flex-col gap-3">
-            <h2 className={display()}>“Hey, I’ve gotta get my s**t together and make my life work.”</h2>
+            <h2 className={display()}>Here’s what people ask me: “Hey, Aaron...”</h2>
+            <ul className="my-4 flex flex-col gap-2 font-serif text-[22px] leading-[1.35] text-ink-dark tablet:my-6 tablet:text-[26px] desktop:text-[30px]">
+              {questions.map((q) => (
+                <li key={q}>{q}</li>
+              ))}
+            </ul>
             <p className={lede}>
-              Cut through the noise with practical and rigorously tested tools to elevate your
-              self-awareness, performance, leadership, and relationships.
+              I offer live sessions and asynchronous video and voice support to help individuals and couples explore
+              these questions, and all the other important ones. It’s sort of like therapy, but you actually look
+              forward to it.
             </p>
           </div>
-          <ButtonLink to="/about">About Me</ButtonLink>
+          <div className="flex flex-col items-center gap-3">
+            <ButtonLink to="/contact">Book a Call</ButtonLink>
+            <p className="text-[15px] leading-[1.4] font-light text-ink tablet:text-base">
+              Worst case, you had a nice conversation.
+            </p>
+          </div>
         </div>
       </section>
 
-      <CoachingSection intro="Live or asynchronous sessions specializing in:" cta="Get Started" />
+      {/* Practitioner overview */}
+      <section className="bg-paper pt-15 pb-20 tablet:py-24 desktop:py-30">
+        <div className="site-container flex max-w-[760px] flex-col gap-5 text-[17px] leading-[1.6] font-light text-ink tablet:gap-6 tablet:text-xl tablet:leading-[1.6] desktop:text-[22px]">
+          <p>
+            Technically, I’m a{' '}
+            <Link to="/services" className="underline decoration-1 underline-offset-4 hover:text-navy">
+              life coach
+            </Link>
+            . It also pains me to call myself a coach, yet I also refuse to tell you I’m a “self-awareness and freedom
+            specialist” or some nonsense like that. I’m kind of just a guy.
+          </p>
+          <p>
+            But I’ve also been meditating since I was five, and I’ve studied as much psychology, spirituality,
+            personal growth, healing, transformation — whatever we want to call it — and neuroscience as I possibly
+            can. I’m obsessed with giving people a safe place (painfully co-opted word, but I mean it sincerely) to be
+            and become all of who they are.
+          </p>
+          <p>
+            I’m trying to engage deeply and honestly with what we’re doing here and how to make the most out of life.
+            So, hey. If you want a partner who’s done this a lot to help figure out your version, that’s what I’m here
+            for.
+          </p>
+          <div className="mt-4 flex justify-center tablet:mt-6">
+            <ButtonLink to="/about">About Me</ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      {/* What we can work on */}
+      <section className="bg-ice-100 pt-15 pb-20 tablet:py-24 desktop:py-30">
+        <div className="site-container flex flex-col items-center gap-8 text-center tablet:gap-10">
+          <h2 className={display()}>What we can work on</h2>
+          <div className="flex flex-col gap-2 text-left tablet:flex-row tablet:justify-center tablet:gap-12 desktop:gap-16">
+            {topics.map((col) => (
+              <ul key={col[0]} className="flex flex-col gap-2">
+                {col.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-4 text-lg leading-[1.4] font-light text-ink tablet:text-xl desktop:text-2xl"
+                  >
+                    <img src="/images/check.svg" alt="" width={24} height={25} className="flex-none" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+          <p className={`${lede} max-w-[760px]`}>
+            That’s the official list. But honestly, what I really love is the big stuff: who you are, identity crises,
+            what the hell we’re doing here, and what makes a relationship actually work.
+          </p>
+          <ButtonLink to="/services">Services</ButtonLink>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <section
@@ -214,16 +290,17 @@ export default function Home() {
             </figure>
           ))}
         </div>
+        <TestimonialCarousel items={carousel} />
       </section>
 
       {/* Start */}
       <section className="bg-ice-300 pt-[70px] pb-20 tablet:py-28 desktop:pt-[139px] desktop:pb-[140px]">
         <div className="site-container flex flex-col items-center gap-6 text-center tablet:gap-8 desktop:gap-10">
           <div className="flex flex-col gap-1.5 tablet:gap-2">
-            <h2 className={display()}>Your Journey Begins Today</h2>
-            <p className={lede}>Discover yourself and live life at your fullest.</p>
+            <h2 className={display()}>Schedule time to get to know me.</h2>
+            <p className={lede}>Let’s see if this is your thing.</p>
           </div>
-          <ButtonLink to="/contact">Get Started</ButtonLink>
+          <ButtonLink to="/contact">Book a Call</ButtonLink>
         </div>
       </section>
     </Layout>
