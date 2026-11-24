@@ -81,7 +81,7 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/jenna-hagan.jpg',
     photo: 'right',
     tone: 'light',
-    tint: ['#e1dcd3', '#dcd3ca'],
+    tint: ['#ede8e0', '#ede8e0'],
   },
   {
     name: "Paul & Angie",
@@ -90,8 +90,8 @@ export const rotation: BannerTestimonial[] = [
     src: '/images/testimonials/paul-angie.jpg',
     photo: 'right',
     tone: 'dark',
-    tint: ['#132417', '#19271e'],
-    position: 'center 30%',
+    tint: ['#152115', '#182215'],
+    position: 'center 45%',
   },
   {
     name: "Emily Long",
